@@ -1,0 +1,180 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 30, 2020 at 08:30 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ats`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` varchar(50) NOT NULL,
+  `password` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `password`) VALUES
+('k10@123', 'Ketan23@1999');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumni`
+--
+
+CREATE TABLE `alumni` (
+  `name` varchar(75) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `dob` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `alumni_id` varchar(50) NOT NULL,
+  `password` varchar(75) NOT NULL,
+  `stat1` varchar(15) NOT NULL,
+  `sex` varchar(10) NOT NULL,
+  `rno` varchar(20) NOT NULL,
+  `passYr` varchar(10) NOT NULL,
+  `org` varchar(80) NOT NULL,
+  `crPos` varchar(50) NOT NULL,
+  `higherDegree` varchar(50) NOT NULL,
+  `courseAftGrad` varchar(1000) NOT NULL,
+  `PrfLvl` varchar(1000) NOT NULL,
+  `area` varchar(50) NOT NULL,
+  `natureOfProject` varchar(75) NOT NULL,
+  `verified` int(5) NOT NULL,
+  `pass_rec` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `alumni`
+--
+
+INSERT INTO `alumni` (`name`, `address`, `dob`, `email`, `mobile`, `alumni_id`, `password`, `stat1`, `sex`, `rno`, `passYr`, `org`, `crPos`, `higherDegree`, `courseAftGrad`, `PrfLvl`, `area`, `natureOfProject`, `verified`, `pass_rec`) VALUES
+('kunal agrawal', 'ravi nagar', '1999-05-31', 'kunala.cse@sbjit.edu.in', '9874563215', '17016', 'kunal@123', 'Unmarried', 'Male', '17016', '2021', 'sbjitmr', 'software enginner', 'NA', 'no', 'Sponsored', 'Corporate', 'Goverment Sponsored', 0, ''),
+('ketan marothi', 'wardhaman nagar', '1999-12-23', 'k10@123mail.com', '7410762169', 'k10@123', '123456789', 'Unmarried', 'Male', '17021', '2021', 'Accenture', 'software enginner', 'Other', 'no', 'Tester', 'IT', 'Testing', 0, ''),
+('nihar das', 'friends colony', '1999-05-25', 'nihard@sbjit.edu.in', '9874561230', '17028', '1702800000', 'Unmarried', 'Male', '28', '2022', 'Infotech', 'software enginner', 'NA', 'no', 'Tech', 'Education', 'Testing', 0, ''),
+('Pratik Chaudhari', 'Some where on earth', '1999-12-12', 'pratik@yahoo.com', '7410762169', '17036', '1231231230', 'Unmarried', 'Male', '36', '2021', 'TCVS', 'software enginner', 'NA', 'no', 'tech', 'Banking', 'Developer', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `college`
+--
+
+CREATE TABLE `college` (
+  `sname` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `dob` varchar(50) NOT NULL,
+  `rno` varchar(10) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `passYr` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `college`
+--
+
+INSERT INTO `college` (`sname`, `email`, `dob`, `rno`, `mobile`, `passYr`) VALUES
+('Manas Tiwari', 'manast.cse@sbjit.edu.in', '02-12-1999', '17019', '9431564782', '2022');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event`
+--
+
+CREATE TABLE `event` (
+  `event_date` varchar(20) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `detail` varchar(250) NOT NULL,
+  `add_time` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`event_date`, `subject`, `detail`, `add_time`) VALUES
+('', 'techno 2021', 'techno2021', '2020-03-10 23:58:25'),
+('2019-12-31', 'last day yr', 'new yr', '2020-03-11 00:15:07'),
+('2020-01-22', 'Techno2020', 'Techno2020 in SBJITMR', '2020-01-27 13:46:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `imgupload`
+--
+
+CREATE TABLE `imgupload` (
+  `id` int(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `alumni`
+--
+ALTER TABLE `alumni`
+  ADD PRIMARY KEY (`rno`),
+  ADD UNIQUE KEY `alumni_id` (`alumni_id`);
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`event_date`);
+
+--
+-- Indexes for table `imgupload`
+--
+ALTER TABLE `imgupload`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `imgupload`
+--
+ALTER TABLE `imgupload`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
